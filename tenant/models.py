@@ -1,3 +1,11 @@
-from django.db import models
+# https://pypi.org/project/django-tenants/
+# python manage.py migrate_schemas --shared
 
-# Create your models here.
+from django.db import models
+from django_tenants.models import TenantMixin, DomainMixin
+
+class Client(TenantMixin): #resturent
+    name = models.CharField(max_length=100)
+
+class Domain(DomainMixin): #be aware
+    pass

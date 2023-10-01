@@ -1,6 +1,7 @@
 from django.db import models
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from tenant.models import Client
 
 
 class CustomUser(AbstractUser):
@@ -29,9 +30,10 @@ class CustomUser(AbstractUser):
     )
 
     role = models.PositiveSmallIntegerField(choices=ROLE_CHOICES, blank=True, null=True)
+    tenant = models.ForeignKey(Client,related_name="users",on_delete=models.DO_NOTHING,default=None,blank=True)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
+    REQUIRED_FIELDS = ['username','tenant']
 
     def getRoleName(self):
         if self.role==1:
