@@ -109,8 +109,8 @@ DATABASE_ROUTERS = (
     'django_tenants.routers.TenantSyncRouter',
 )
 
-TENANT_MODEL = "tenant.Client" # app.Model
-TENANT_DOMAIN_MODEL = "tenant.Domain" # app.Model
+TENANT_MODEL = "tenant.Resturent" # app.Model
+TENANT_DOMAIN_MODEL = "tenant.ResturentTenantAwareModel" # app.Model
 
 
 # PUBLIC_SCHEMA_URLCONF = "mainapp.urls"

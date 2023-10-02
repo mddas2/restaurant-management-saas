@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Client,Domain
+from .models import Resturent,ResturentTenantAwareModel
 
-admin.site.register(Client)
-admin.site.register(Domain)
+admin.site.register(Resturent)
+admin.site.register(ResturentTenantAwareModel)

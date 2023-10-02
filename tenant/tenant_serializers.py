@@ -1,12 +1,12 @@
 from rest_framework import serializers
-from .models import Client,Domain
+from .models import Resturent,ResturentTenantAwareModel
 
-class ClientSerializer(serializers.ModelSerializer):
+class ResturentSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Client
+        model = Resturent
         fields = '__all__'
     
-class DomainSerializer(serializers.ModelSerializer):
+class  ResturentAwareSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Domain
+        model = ResturentTenantAwareModel
         fields = '__all__'
