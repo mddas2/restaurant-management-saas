@@ -40,6 +40,7 @@ class DeliveryOrder(Order):
     delivery_address=models.CharField(max_length=50)
 
 
-class IndividualTableBill(models.Model):
+# class IndividualTableBill(models.Model):
+
 
 
