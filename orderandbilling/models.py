@@ -18,6 +18,7 @@ class Order(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Pending')
+    item_name=models.CharField(max_legth=20)
 
     abstract=True
     def __str__(self):
@@ -37,3 +38,8 @@ class DeliveryOrder(Order):
     """ Model For Delivery """
     food_items= models.ManyToManyField(FoodItem,)
     delivery_address=models.CharField(max_length=50)
+
+
+class IndividualTableBill(models.Model):
+
+
