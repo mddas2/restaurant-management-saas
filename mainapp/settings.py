@@ -38,6 +38,7 @@ SHARED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     # Custom apps
     'rest_framework',
     'django_filters',
@@ -47,7 +48,7 @@ SHARED_APPS = [
     'tenant'
 ]
 
-TENANT_APPS = ["management"]
+TENANT_APPS = ["management","orderandbilling","tableandspace"]
 
 INSTALLED_APPS = SHARED_APPS + [app for app in TENANT_APPS if app not in SHARED_APPS]
 
