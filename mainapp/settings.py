@@ -52,21 +52,6 @@ TENANT_APPS = ["management","orderandbilling","tableandspace"]
 
 INSTALLED_APPS = SHARED_APPS + [app for app in TENANT_APPS if app not in SHARED_APPS]
 
-# INSTALLED_APPS = [
-#     'django.contrib.admin',
-#     'django.contrib.auth',
-#     'django.contrib.contenttypes',
-#     'django.contrib.sessions',
-#     'django.contrib.messages',
-#     'django.contrib.staticfiles',
-#     # Custom apps
-#     'rest_framework',
-#     'rest_framework_simplejwt',
-#     'account',
-#     'management',
-#     'tenant',
-#     'django_tenants',
-# ]
 
 AUTH_USER_MODEL = "account.CustomUser" 
 
@@ -76,7 +61,8 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django_tenants.middleware.main.TenantMainMiddleware',
+    # 'django_tenants.middleware.main.TenantMainMiddleware', 
+    'tenant.tenant_middleware_tenant_djanago_main.TenantMainMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
