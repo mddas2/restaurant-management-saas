@@ -10,7 +10,7 @@ class Resturent(TenantMixin): #resturent
 class ResturentTenantAwareModel(DomainMixin): #And then create a class TenantAwareModel class which other models will subclass from it,(in all models it's tenant id goes)
     pass
 
-class ResturentAwareModel(models.Model):
+class ResturentAwareModel(models.Model): #this model is used for put tenant id for all shared app.
     resturent = models.ForeignKey(Resturent, on_delete=models.CASCADE)
 
     class Meta:
