@@ -40,10 +40,6 @@ class CustomUser(AbstractUser):
             return 'SUPERADMIN'
         else:
             return 'None'
-
-
-class Publisher(models.Model):
-    user = models.ForeignKey(CustomUser,related_name="publisher", on_delete=models.CASCADE)
     
 
 
