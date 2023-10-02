@@ -1,2 +1,5 @@
 env/
 db.sqlite3
+mainapp/settings.py
+__pycache__
+*.pyc
