@@ -2,7 +2,6 @@ from rest_framework import serializers
 
 from management.models import FoodItem, FoodCategory, MenuCategory
 
-
 class FoodItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = FoodItem

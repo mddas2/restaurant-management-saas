@@ -1,8 +1,8 @@
 from django.db import models
-
+from tenant.models import ResturentAwareModel
 # Create your models here.
 
-class TableAndSpace(models.Model):
+class TableAndSpace(ResturentAwareModel):
     """
     Model for mananging tables and spaces in the restaurant.
     """
