@@ -35,5 +35,5 @@ class InHouseOrder(Order):
 
 class DeliveryOrder(Order):
     """ Model For Delivery """
-    food_items=models.ManyToManyField(FoodItem,)
+    food_items= models.ManyToManyField(FoodItem,)
     delivery_address=models.CharField(max_length=50)
