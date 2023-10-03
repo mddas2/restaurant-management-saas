@@ -37,14 +37,12 @@ class Order(ResturentAwareModel):
 
 class InHouseOrder(ResturentAwareModel):
     """ Model for Order in side the Restraunant"""
+    #Table Information
+    table_number=models.ManyToManyField(Table,related_name='inhouseorder')
+    #Food Item Information
+    food_items=models.ManyToManyField(FoodItem,)
 
-    orders=models.ManyToManyField(Order,related_name='inhouseorder')
-    table = models.CharField(max_length=20)
-    total_price = models.CharField(max_length=20)
-    status =  models.CharField(max_length=20)
-   
-
-class DeliveryOrder(ResturentAwareModel):
+class DeliveryOrder(Order):
     """ Model For Delivery """
     
     orders=models.ManyToManyField(Order,related_name='order_delivery')
@@ -54,5 +52,6 @@ class DeliveryOrder(ResturentAwareModel):
 
 # class IndividualTableBill(models.Model):
 
+class IndividualTableBill(models.Model):
 
 
