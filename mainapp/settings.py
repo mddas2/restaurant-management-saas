@@ -38,7 +38,7 @@ SHARED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_extensions',
+    #'django_extensions',
     # Custom apps
     'rest_framework',
     'django_filters',
@@ -106,7 +106,7 @@ TENANT_DOMAIN_MODEL = "tenant.ResturentTenantAwareModel" # app.Model
 DATABASES = {
     'default': {
         'ENGINE': 'django_tenants.postgresql_backend',
-        'NAME': 'restro',
+        'NAME': 'restro1',
         'USER': 'postgres',
         'PASSWORD': 'md',
         'HOST': 'localhost',
