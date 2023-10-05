@@ -1,6 +1,6 @@
 from django.db import models
 from management.models import FoodItem
-# from tableandspace.models import Table
+from tableandspace.models import TableAndSpace
 from account.models import CustomUser
 from tenant.models import ResturentAwareModel
 
@@ -38,7 +38,7 @@ class Order(ResturentAwareModel):
 class InHouseOrder(ResturentAwareModel):
     """ Model for Order in side the Restraunant"""
     #Table Information
-    table_number=models.ManyToManyField(Table,related_name='inhouseorder')
+    table_number=models.ManyToManyField(TableAndSpace,related_name='inhouseorder')
     #Food Item Information
     food_items=models.ManyToManyField(FoodItem,)
 
@@ -47,11 +47,11 @@ class DeliveryOrder(Order):
     
     orders=models.ManyToManyField(Order,related_name='order_delivery')
     user=models.ForeignKey(CustomUser,related_name="order_delivery",on_delete=models.CASCADE)
-    status =  models.CharField(max_length=20)
+    #status =  models.CharField(max_length=20)
 
 
 # class IndividualTableBill(models.Model):
 
 class IndividualTableBill(models.Model):
-
+    pass
 
