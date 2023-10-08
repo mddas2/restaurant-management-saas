@@ -2,11 +2,11 @@ from django.db import models
 from management.models import FoodItem
 from tableandspace.models import TableAndSpace
 from account.models import CustomUser
-from tenant.models import RestaurantAwareModel
+
 
 # Create your models here
 
-class Order(RestaurantAwareModel):
+class Order(models.Model):
     """Model for Order """
     STATUS_CHOICES = (
         ('Pending', 'Pending'),
@@ -35,7 +35,7 @@ class Order(RestaurantAwareModel):
     class Meta:
         ordering = ['-created_at']
 
-class InHouseOrder(RestaurantAwareModel):
+class InHouseOrder(models.Model):
     """ Model for Order in side the Restraunant"""
     #Table Information
     table_number=models.ManyToManyField(TableAndSpace,related_name='inhouseorder')
