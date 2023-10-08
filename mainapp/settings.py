@@ -39,10 +39,13 @@ SHARED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #'django_extensions',
-    # Custom apps
+    
+    #thirdparty
     'rest_framework',
     'django_filters',
     'rest_framework_simplejwt',
+    
+    # Custom apps
     'account',
     'django_tenants',
     'tenant'
@@ -92,8 +95,8 @@ DATABASE_ROUTERS = (
     'django_tenants.routers.TenantSyncRouter',
 )
 
-TENANT_MODEL = "tenant.Resturent" # app.Model
-TENANT_DOMAIN_MODEL = "tenant.ResturentTenantAwareModel" # app.Model
+TENANT_MODEL = "tenant.Restaurant" # app.Model
+TENANT_DOMAIN_MODEL = "tenant.RestaurantTenantAwareModel" # app.Model
 
 
 # DATABASES = {
@@ -106,7 +109,7 @@ TENANT_DOMAIN_MODEL = "tenant.ResturentTenantAwareModel" # app.Model
 DATABASES = {
     'default': {
         'ENGINE': 'django_tenants.postgresql_backend',
-        'NAME': 'restro1',
+        'NAME': 'restro',
         'USER': 'postgres',
         'PASSWORD': 'md',
         'HOST': 'localhost',
@@ -164,3 +167,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL='account.CustomUser'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
