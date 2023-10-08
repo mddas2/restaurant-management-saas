@@ -23,7 +23,7 @@ from tenant.tenant_viewset_api import ClientViewSet,DomainViewSet
 from . import views
 
 router = DefaultRouter()
-router.register(r'client', ClientViewSet)
+router.register(r'tenant', ClientViewSet)
 router.register(r'domain', DomainViewSet)
 
 urlpatterns = [

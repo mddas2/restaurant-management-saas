@@ -32,6 +32,7 @@ class FoodItem(models.Model):
     ex: chicken momo, veg momo, butter roti.
     """
     name = models.CharField(max_length=80)
+    # name_md = models.CharField(max_length=80,null =True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     description = models.TextField(blank=True)
     

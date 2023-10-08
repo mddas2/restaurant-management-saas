@@ -109,7 +109,7 @@ TENANT_DOMAIN_MODEL = "tenant.RestaurantTenantAwareModel" # app.Model
 DATABASES = {
     'default': {
         'ENGINE': 'django_tenants.postgresql_backend',
-        'NAME': 'restro',
+        'NAME': 'resturents',
         'USER': 'postgres',
         'PASSWORD': 'md',
         'HOST': 'localhost',

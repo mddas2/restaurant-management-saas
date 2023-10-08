@@ -34,7 +34,7 @@ class TenantMainMiddleware(MiddlewareMixin):
     def get_tenant(self, tenant_model, hostname):
         domain = tenant_model.objects.get(schema_name=hostname)
         try:
-            return domain.tenant
+            return domain
         except:
             return None
         
