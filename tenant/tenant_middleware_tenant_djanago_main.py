@@ -6,7 +6,7 @@ from django.urls import set_urlconf
 from django.utils.deprecation import MiddlewareMixin
 
 from django_tenants.utils import remove_www, get_public_schema_name, get_tenant_types, \
-    has_multi_type_tenants, get_tenant_domain_model, get_public_schema_urlconf
+    has_multi_type_tenants, get_tenant_domain_model, get_public_schema_urlconf,get_tenant_model
 
 
 class TenantMainMiddleware(MiddlewareMixin):
@@ -31,8 +31,8 @@ class TenantMainMiddleware(MiddlewareMixin):
 
         return tenant
 
-    def get_tenant(self, domain_model, hostname):
-        domain = domain_model.objects.select_related('tenant').get(tenant__schema_name=hostname)
+    def get_tenant(self, tenant_model, hostname):
+        domain = tenant_model.objects.get(schema_name=hostname)
         try:
             return domain.tenant
         except:
@@ -50,10 +50,10 @@ class TenantMainMiddleware(MiddlewareMixin):
             from django.http import HttpResponseNotFound
             return HttpResponseNotFound()
 
-        domain_model = get_tenant_domain_model()
+        tenant_model = get_tenant_model()
         try:
-            tenant = self.get_tenant(domain_model, hostname)
-        except domain_model.DoesNotExist:
+            tenant = self.get_tenant(tenant_model, hostname)
+        except tenant_model.DoesNotExist:
             print("You have not any tenant accociated...")
             tenant = None
             # self.no_tenant_found(request, hostname)
