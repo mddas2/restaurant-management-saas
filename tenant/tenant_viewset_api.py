@@ -1,12 +1,12 @@
 from rest_framework import viewsets
 from django.db import connection
-from .models import Resturent,ResturentTenantAwareModel
-from .tenant_serializers import ResturentSerializer,ResturentAwareSerializer
+from .models import Restaurant,RestaurantTenantAwareModel
+from .tenant_serializers import RestaurantSerializer,RestaurantAwareSerializer
 
 class ClientViewSet(viewsets.ModelViewSet):
-    queryset = Resturent.objects.all()
-    serializer_class = ResturentSerializer
+    queryset = Restaurant.objects.all()
+    serializer_class = RestaurantSerializer
 
 class DomainViewSet(viewsets.ModelViewSet):
-    queryset = ResturentTenantAwareModel.objects.all()
-    serializer_class = ResturentAwareSerializer
+    queryset = RestaurantTenantAwareModel.objects.all()
+    serializer_class = RestaurantAwareSerializer

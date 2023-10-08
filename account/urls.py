@@ -5,6 +5,7 @@ from .views import LoginView
 from rest_framework.routers import DefaultRouter
 from .views import PermissionAllDelete,RoleViewSet,CheckTokenExpireView,userLimitedData
 from .group_permission import PermissionHasGroupViewSet,CustomPermissionInsert
+from .google_auth import HelloView, GoogleView
 
 from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView,TokenVerifyView
 
@@ -32,7 +33,9 @@ urlpatterns = [
 
     path('add-customized-permission/',CustomPermissionInsert,name="CustomPermissionInsert"),
 
-    path('get-limited-user-data/',userLimitedData.as_view(),name="userLimitedData")
+    path('get-limited-user-data/',userLimitedData.as_view(),name="userLimitedData"),
+    path('hello/', HelloView.as_view(), name='hello'),
+    path('google/', GoogleView.as_view(), name='google'),
 
     # path('user-has-groups/',)
     

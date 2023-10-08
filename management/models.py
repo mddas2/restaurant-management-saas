@@ -1,8 +1,8 @@
 from django.db import models
-from tenant.models import ResturentAwareModel
+from tenant.models import RestaurantAwareModel
 
 
-class FoodCategory(ResturentAwareModel):
+class FoodCategory(RestaurantAwareModel):
     """
     Model for different food categories.
     different types of roti are in roti items category.
@@ -15,7 +15,7 @@ class FoodCategory(ResturentAwareModel):
         return self.name
 
 
-class MenuCategory(ResturentAwareModel):
+class MenuCategory(RestaurantAwareModel):
     """
     Model for associating food items with different menus like 
     Dining Menu ,Delivery Menu, Special Menu etc.
@@ -27,7 +27,7 @@ class MenuCategory(ResturentAwareModel):
         return self.name
 
 
-class FoodItem(ResturentAwareModel):
+class FoodItem(RestaurantAwareModel):
     """
     Model for particular food items. 
     ex: chicken momo, veg momo, butter roti.

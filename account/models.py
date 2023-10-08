@@ -1,13 +1,12 @@
 from django.db import models
-from django.db import models
 from django.contrib.auth.models import AbstractUser
-from tenant.models import Resturent
+from tenant.models import Restaurant
 
 
 class CustomUser(AbstractUser):
+    username = models.CharField(max_length=255,unique=True)  
     phone = models.CharField(max_length=15 ,unique=True)
     email = models.EmailField(max_length=255,unique=True)
-    username = models.CharField(max_length=255,unique=True)  
     is_active = models.BooleanField(default=True)
     is_verified = models.IntegerField(choices=[(0, 'Not verified'), (1, 'Verified')], default=0)
     created_by = models.IntegerField(null=True)
@@ -30,10 +29,10 @@ class CustomUser(AbstractUser):
     )
 
     role = models.PositiveSmallIntegerField(choices=ROLE_CHOICES, blank=True, null=True)
-    tenant = models.ForeignKey(Resturent,related_name="users",on_delete=models.DO_NOTHING,default=None,blank=True)
+    tenant = models.ForeignKey(Restaurant, related_name="users",on_delete=models.DO_NOTHING,default=None,blank=True, null=True)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username','tenant']
+    REQUIRED_FIELDS = ['username']
 
     def getRoleName(self):
         if self.role==1:
